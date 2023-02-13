@@ -10,6 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=10" };
@@ -24,6 +26,17 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+
+#include <X11/XF86keysym.h>
+ 
+/* volume keys*/
+static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+10%", NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-10%", NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+ 
+/* backlight */
+static const char *brightnessup[] = { "xbacklight", "-inc",  "5", NULL };
+static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -103,6 +116,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+  { 0, XF86XK_AudioLowerVolume, spawn, {.v = downvol} },
+  { 0, XF86XK_AudioMute, spawn, {.v = mutevol }},
+  { 0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol} },
+  { 0, XF86XK_MonBrightnessUp, spawn, {.v = brightnessup} },
+  { 0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown} },
 };
 
 /* button definitions */
