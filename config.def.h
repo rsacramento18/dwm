@@ -15,12 +15,12 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int horizpadbar        = 5;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 11;        /* vertical padding for statusbar */
+static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 4;        /* vertical padding for statusbar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:style:medium:size=12" };
-static const char dmenufont[]       = "JetBrainsMono:size=12";
+static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:style:medium:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
