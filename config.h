@@ -16,11 +16,13 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 4;        /* vertical padding for statusbar */
+static const int vertpadbar         = 12;        /* vertical padding for statusbar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:style:medium:size=12" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:style:medium:size=12";
+static const char *fonts[]          = { "ComicCodeLigatures Nerd Font Mono:Regular:size=11", "Symbols Nerd Font:Semibold:size=16" };
+static const char dmenufont[]       = "ComicCodeLigatures Nerd Font Mono:Regular:size=11";
+/* static const char *fonts[]          = { "Iosevka Mayukai Sonata:Bold:size=12", "Symbols Nerd Font:Semibold:size=16" }; */
+/* static const char dmenufont[]       = "Iosevka Mayukai Sonata:Bold:size=12"; */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -85,7 +87,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static char dmenuheight[4] = "30";
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-h", dmenuheight, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
