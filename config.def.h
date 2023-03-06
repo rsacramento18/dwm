@@ -28,7 +28,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_borderbar[]   = "#ff0000";
+static const char col_borderbar[]   = "#222222";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -44,8 +44,8 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-10%
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
  
 /* backlight */
-static const char *brightnessup[] = { "xbacklight", "-inc",  "5", NULL };
-static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
+static const char *brightnessup[] = { "light", "-A",  "5", NULL };
+static const char *brightnessdown[] = { "light", "-U", "5", NULL };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
