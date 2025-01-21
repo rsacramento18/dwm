@@ -1,11 +1,10 @@
---- dwm.c	2022-01-07 12:42:18.000000000 +0100
-+++ dwm.c	2022-08-17 22:14:41.813809073 +0200
-@@ -1913,7 +1923,7 @@ updategeom(void)
- 					m->clients = c->next;
- 					detachstack(c);
- 					c->mon = mons;
--					attach(c);
-+					attachbottom(c);
- 					attachstack(c);
- 				}
- 				if (m == selmon)
+--- dwm.c	2023-04-30
++++ dwm.c	2023-04-30
+@@ -201,6 +202,7 @@ static void sendmon(Client *c, Monitor *
+ static void setclientstate(Client *c, long state);
+ static void setfocus(Client *c);
+ static void setfullscreen(Client *c, int fullscreen);
++static void setgaps(const Arg *arg);
+ static void setlayout(const Arg *arg);
+ static void setmfact(const Arg *arg);
+ static void setup(void);
