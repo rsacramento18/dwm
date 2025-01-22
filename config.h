@@ -26,6 +26,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"dwmblocks", NULL,
+	"autorandr", NULL,
   "dunst", NULL,
   "udiskie", NULL,
   "setxkbmap -option caps:escape", NULL,
@@ -72,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "ghostty", NULL };
 
 static const Key keys[] = {
@@ -115,6 +116,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_0,                      9)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
